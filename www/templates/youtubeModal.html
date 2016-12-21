@@ -1,0 +1,12 @@
+
+<ion-modal-view class="ion-nifty-modal">
+
+	<div class="ion-modal-content-custom">
+		<ion-content class="padding">
+
+			<i class="ion-close-circled modalCloseButton" ng-click='closeButtonClicked($event)'></i>
+			<you-tube class="youtubePlayer" play = "play" play_pause = "playVideo" video_link="{{movie.trailer_link}}" spinner="loading" trailer='true'></you-tube>
+			<!--iframe id='trailer_player' playPause="playVideo" type='text/html' width='100%' height='300' ng-src="{{movie.trailer_link}}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe-->
+		</ion-content>
+	</div>
+</ion-modal-view>
