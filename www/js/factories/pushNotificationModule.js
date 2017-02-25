@@ -30,7 +30,9 @@ var pushNotMod = angular.module('pushNotificationModule', []);
                      push.on('notification', function(data) {
                         console.log("notification event :");
                          console.log(JSON.stringify(data));
-
+                             if(typeof data.title === "undefined"){
+                                data.title = data.additionalData.link_url;
+                             }
                          $ionicPopup.show({
                             title: "<h4><span class='title'>"+data.title+"</span></h4>",
                             template: "<span>"+data.message+"</span>",

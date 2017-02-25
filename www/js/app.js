@@ -73,3 +73,18 @@ angular.module('starter', ['ionic','starter.controllers','cinemaghar_directives'
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/homePage');
 });
+
+var app = {
+    initialize: function() {
+        this.bindEvents();
+    },
+    bindEvents: function() {
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+    },
+    onDeviceReady: function() {
+
+    },
+	playVideo: function() {
+		YoutubeVideoPlayer.openVideo('aDmW14hduAQ');
+	}
+};

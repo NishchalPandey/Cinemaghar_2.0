@@ -9,7 +9,7 @@ angular.module('starter.controllers', ['cinemagharhdServices', 'facebookModule',
     $scope.$on('loadingDone', function(){
       $ionicLoading.hide();
     })
-
+    
     $scope.loading = true;
     movieFactory.getAllMovies()
       .then(function(success){
