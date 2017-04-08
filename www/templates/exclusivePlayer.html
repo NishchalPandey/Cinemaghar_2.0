@@ -16,12 +16,12 @@
         </i>
       </button>
     </div-->
-    <vimeo-video player-id="video1" video-id="173959909"></vimeo-video>
+    <vimeo-video player-id="video1" video-id=movie.embeddedLink ></vimeo-video>
     <!--ion-spinner icon="crescent" align="center" style="margin-left: auto; margin-right: auto; display:block;" ng-show="loading"></ion-spinner-->
     <div class="list videoDetails">
       <div class="item item-text-wrap">
         <h2>{{movie.name |lowercase | capitalizeFirstLetter}}</h2>
-        <p>{{movie.description}}</p>
+        <p>{{movie.description}}, {{movie.embeddedLink}}</p>
         <div class="text-right">
           <p class="tag"><span>Free</span><span>HD</span></p>
 

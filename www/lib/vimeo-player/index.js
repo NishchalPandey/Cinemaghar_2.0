@@ -16,32 +16,37 @@ console.log('vimeoEmded loading!');
           api: '='
       },
       link: function (scope, element, attrs, ctrl) {
-        var playerId = attrs.playerId || element[0].id;
-        element[0].id = playerId;
 
-        var options = scope.playerOpts;
+        scope.$watch("videoId",function(newValue){
+          console.log(newValue);
+        
+          var playerId = attrs.playerId || element[0].id;
+          element[0].id = playerId;
 
-        var params = {
-          url: scope.videoId ? 'https://vimeo.com/' + scope.videoId : scope.videoUrl,
-          callback: 'JSON_CALLBACK',
-          player_id: playerId
-        };
+          var options = scope.playerOpts;
 
-        if (scope.playerWidth) params['width'] = scope.playerWidth;
-        if (scope.playerHeight) params['height'] = scope.playerHeight;
-        if (scope.api) params['api'] = 1;
+          var params = {
+            url: scope.videoId ? 'https://vimeo.com/' + scope.videoId : scope.videoUrl,
+            callback: 'JSON_CALLBACK',
+            player_id: playerId
+          };
 
-        //If params obj is passed, loop through object keys and append query param
-        if (options)  {
-          for (var prop in options) {
-            if (options.hasOwnProperty(prop)) params[prop] = options[prop];
+          if (scope.playerWidth) params['width'] = scope.playerWidth;
+          if (scope.playerHeight) params['height'] = scope.playerHeight;
+          if (scope.api) params['api'] = 1;
+
+          //If params obj is passed, loop through object keys and append query param
+          if (options)  {
+            for (var prop in options) {
+              if (options.hasOwnProperty(prop)) params[prop] = options[prop];
+            }
           }
-        }
 
-        VimeoService.oEmbed(params).then(function (data) {
-          element.html(data.html);
-        }, function () {
-          element.html('<div>Failed to retreive video.</div>');
+          VimeoService.oEmbed(params).then(function (data) {
+            element.html(data.html);
+          }, function () {
+            element.html('<div>Failed to retreive video.</div>');
+          });
         });
       }
     };

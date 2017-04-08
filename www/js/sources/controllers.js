@@ -231,11 +231,11 @@ angular.module('starter.controllers',
 
         };
 
-        $scope.playExclusiveMovie = function(){
+        /*$scope.playExclusiveMovie = function(){
           console.log($scope.movie.embeddedLink);
           YoutubeVideoPlayer.openVideo($scope.movie.embeddedLink);
 
-        }
+        }*/
 
         $scope.play = {};
 
@@ -279,4 +279,4 @@ angular.module('starter.controllers',
           },function(error){
             console.log(error);
         });
-  })
+      })
