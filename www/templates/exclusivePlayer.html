@@ -1,0 +1,36 @@
+<ion-view view-title="Cinemaghar Player">
+  <ion-header-bar align-title="center" class="bar-positive">
+     <div class="buttons">
+      <button class="button button-icon button-clear ion-ios-arrow-back" ng-click="myGoBack(movie)"> </button>
+    </div>
+
+    <h1 class="title">Cinemaghar Player</h1>
+    </ion-nav-bar>
+
+  </ion-header-bar>
+  <ion-content>
+    <!--div ng-click="playExclusiveMovie()" style="background-image: url('http://www.cinemagharhd.com/exclusivePlayerBanners/{{movie.banner_name}}')" id="exclusiveMoviePlayerBanner">
+      <button class="button button-clear">
+        <i class="ion-play">
+          <p>Play Movie</p>
+        </i>
+      </button>
+    </div-->
+    <vimeo-video player-id="video1" video-id="173959909"></vimeo-video>
+    <!--ion-spinner icon="crescent" align="center" style="margin-left: auto; margin-right: auto; display:block;" ng-show="loading"></ion-spinner-->
+    <div class="list videoDetails">
+      <div class="item item-text-wrap">
+        <h2>{{movie.name |lowercase | capitalizeFirstLetter}}</h2>
+        <p>{{movie.description}}</p>
+        <div class="text-right">
+          <p class="tag"><span>Free</span><span>HD</span></p>
+
+          <p class="star">
+            <rating-div rating='movie.Rating'>
+
+          </rating-div></p>
+          <a href="" ng-click ='trailer(movie)' class="button button-small button-assertive">Watch Trailer </a> </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

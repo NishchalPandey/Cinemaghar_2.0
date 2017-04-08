@@ -1,5 +1,5 @@
 <ion-view view-title={{movie.catagory}} >
-  This one
+  hasdifhaosdifasodifhsad
    <ion-header-bar align-title="center" class="bar-positive">
   <div class="buttons">
       <button class="button button-icon button-clear ion-ios-arrow-back" ng-click="homePage()"> </button>
@@ -15,7 +15,7 @@
 
     <ion-spinner icon="crescent" align="center" style="margin-left: auto; margin-right: auto; display:block;" ng-show="loading"></ion-spinner>
 
-    <a class="item item-thumbnail-left" ng-repeat='movie in allMovies' href="#/player/{{movie.id}}">
+    <a class="item item-thumbnail-left" ng-repeat='movie in allMovies' href="#/player/exclusive/{{movie.id}}">
       <img ng-src='http://www.cinemagharhd.com/banners/{{movie.banner_name}}'>
       <h2>{{movie.name |lowercase | capitalizeFirstLetter}}</h2>
       <p class="tag"><span>Free</span><span>HD</span></p>

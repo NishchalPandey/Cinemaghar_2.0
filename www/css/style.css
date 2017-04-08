@@ -1,5 +1,7 @@
 /* Empty. Add your own CSS if you like */
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900);
+@import "exclusivePlayerPage.css";
+a{text-decoration:none;}
 body { font-family: 'Roboto', sans-serif; font-size: 1em }
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { font-family: 'Roboto', sans-serif; }
 .bar .title, .platform-android .bar .title, .bar.bar-positive .title { font-family: 'Roboto', sans-serif; font-weight: 700; font-size: 1.4em; color: #cf386f; }
@@ -40,7 +42,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { font-family: 'Roboto', sa
 .movieList .item.item-thumbnail-left { padding: 10px 10px 10px 170px; border-color: #262e3b; min-height: 82px; background: #303a4b; color: #fff; }
 .movieList .item.item-thumbnail-left.activated { background: #2d3647 }
 .movieList .item h2, .movieList .item p { color: #fff; }
-.movieList .item.item-thumbnail-left img { width: 152px; height: 70px; max-width: none; max-height: none; top: 8px; left: 8px; }
+.movieList .item.item-thumbnail-left img { width: 140px; height: 70px; max-width: none; max-height: none; top: 8px; left: 8px; }
 .movieList .item p { margin: 0; }
 .movieList .item p span { display: inline-block; font-size: .8em; padding: 1px 20px; background: #47505f; color: #bdbdbd; margin: 3px 10px 0 0 }
 .movieList .item p.star { color: #ffcf10; margin: 5px 0 0 0; line-height: 1em; font-size: 1em; letter-spacing: 5px; }
@@ -61,3 +63,4 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { font-family: 'Roboto', sa
 .slider-pager .slider-pager-page{color:#cf386f;}
 .slider-pager .slider-pager-page .icon{ font-size:.7em}
 .movieList img{width: 100%;}
+#video1{width : 100%;}

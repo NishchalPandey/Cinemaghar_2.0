@@ -2,16 +2,27 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var bower = require('bower');
 var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
 var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var templateCache = require('gulp-angular-templatecache');
+
 
 var paths = {
-  sass: ['./scss/**/*.scss']
+  sass: ['./scss/**/*.scss'],
+  jsFiles: ['./www/js/sources*.js']
 };
 
 gulp.task('default', ['sass']);
+
+gulp.task('default', function () {
+  console.log("default ran");
+  return gulp.src('./www/templates/*.html')
+    .pipe(templateCache())
+    .pipe(gulp.dest('./www/js/templateCache'));
+});
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')

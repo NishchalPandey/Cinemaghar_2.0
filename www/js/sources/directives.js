@@ -58,9 +58,16 @@ var myDirectives = angular.module('cinemaghar_directives',['ionic'])
             var preValue = 0;
 
             var player = new YT.Player(tElement.children()[0], {
-              height: '300',
+              height: 'auto',
               width: '100%',
               videoId: newValue,
+              playerVars: {
+                     'autoplay': 0,
+                     'modestbranding': 1,
+                     'controls': 1,
+                     'rel' : 0,
+                     'showinfo':0
+              },
               events: {
                 'onReady': function(event){
                       console.log('youtube player ready');
@@ -110,3 +117,49 @@ var myDirectives = angular.module('cinemaghar_directives',['ionic'])
     }
   }
 })
+.directive('tabMenu',[function(){
+      return {
+        restrict:'A',
+        require: 'ngModel',
+        scope: { modelValue: '=ngModel' },  // modelValue for $watch
+        link:function(scope, element, attr, ngModel){
+
+            // Links collection
+            var links=element.find('a');
+
+            // Add click listeners
+            links.on('click',function(e){
+                e.preventDefault();
+                ngModel.$setViewValue( angular.element(this).attr('href') );
+                scope.$apply();
+            })
+
+            // State handling (set active) on model change
+            scope.$watch('modelValue',function(){
+              for(var i=0,l=links.length;i<l;++i){
+                var link = angular.element(links[i]);
+                link.attr('href') === scope.modelValue ?
+                link.addClass('active') : link.removeClass('active')
+              }
+            })
+        }
+      }
+}])
+/*.directive('',function(){
+  return {
+    scope:{
+      "catagory ":"="
+    },
+    template: '<a class="col thumb" href="#/itemList/foreign">'+
+      '<div class="thumbContant">'+
+        '<div class="imagesThumb"> <img src="http://cinemagharhd.com/catagoryImages/{{catagoryBannerImages.Foreign}}" alt=""> </div>'+
+        '<div class="titleThumb">Foreign <span class="arrow"><i class="icon ion-ios-arrow-forward"></i></span></div>'+
+      '</div>'+
+    '</a>',
+    link: function(tScope, tElement, tAttrs){
+
+    }
+  }
+})
+  TODO: creating a directive for catagory cards in home page latest, comedy action
+*/

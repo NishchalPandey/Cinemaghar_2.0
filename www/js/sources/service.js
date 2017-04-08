@@ -15,6 +15,9 @@ cinemagharhdServicesModule.factory('movieFactory',
     getAllMovies: getAllMovies,
     getCachedMovies : movies,
 
+    getExclusiveMovies: function () {
+      return $http.get('http://cinemagharhd.com/php/pull_movies.php?type=catagory&string=exclusive');
+    },
     getMovies: function(catagory){
         return $http.get('http://cinemagharhd.com/php/pull_movies.php?type=catagory&string='+catagory)
     },

@@ -4,7 +4,13 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic','starter.controllers','cinemaghar_directives', 'filterModule'])
+angular.module('templates',[]);
+
+angular.module('starter', [
+  'ionic',
+  'starter.controllers',
+  'cinemaghar_directives',
+  'filterModule','templates'])
 
 .run(function($ionicPlatform, $ionicHistory, $state, $ionicPopup) {
   $ionicPlatform.ready(function() {
@@ -59,11 +65,20 @@ angular.module('starter', ['ionic','starter.controllers','cinemaghar_directives'
   	  controller: 'AppCtrl'
 
     })
+    .state('exclusiveItemList', {
+      url: '/itemList/exclusive',
+  	  templateUrl: 'templates/exclusive-list.html',
+  	  controller: 'exclusiveItemListCtrl'
+    })
     .state('itemList', {
       url: '/itemList/:catagory',
   	  templateUrl: 'templates/item-list.html',
   	  controller: 'itemListCtrl'
-
+    })
+    .state('exclusivePlayer', {
+      url: '/player/exclusive/:movieId',
+  	  templateUrl: 'templates/exclusivePlayer.html',
+  	  controller : 'exclusivePlayerCtrl'
     })
     .state('player', {
       url: '/player/:movieId',
@@ -73,18 +88,3 @@ angular.module('starter', ['ionic','starter.controllers','cinemaghar_directives'
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/homePage');
 });
-
-var app = {
-    initialize: function() {
-        this.bindEvents();
-    },
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-    onDeviceReady: function() {
-
-    },
-	playVideo: function() {
-		YoutubeVideoPlayer.openVideo('aDmW14hduAQ');
-	}
-};
