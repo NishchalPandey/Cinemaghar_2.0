@@ -31,6 +31,40 @@ var myDirectives = angular.module('cinemaghar_directives',['ionic'])
     }
   }
 })
+.directive('ratingDivExclusive', function(){
+  return {
+    scope:{
+      movie: '='
+    },
+    link: function($scope, tElement, tAttrs){
+
+     $scope.$watch('movie',function(newValue, oldValue){
+       //((movie.Rating/movie.no_of_views)*5)
+        if(newValue != ''){
+          if( typeof($scope.movie) != "undefined"){
+            var newRating = $scope.movie.Rating;
+            var movieViews = $scope.movie.no_of_views;
+            console.log(newRating + ' ' + movieViews);
+            rating = Math.ceil(newRating/(movieViews * 5) * 5);
+
+            var fullStar = '<i class="icon ion-ios-star"></i>';
+            var outlineStar = '<i class="icon ion-ios-star-outline"></i>';
+            var stars='';
+
+            for ( var i = 0; i < 5; i++){
+              if(i < rating){
+                stars += fullStar;
+              }else{
+                stars += outlineStar;
+              }
+            }
+            tElement.append(stars);
+          }
+        }
+      })
+    }
+  }
+})
 .directive('youTube', function($window, $ionicLoading, ratingService, YouTubeLoader, $ionicPlatform){
   return{
     restrict: 'E',

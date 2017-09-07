@@ -16,7 +16,7 @@
         </i>
       </button>
     </div-->
-    <vimeo-video player-id="video1" video-id=movie.embeddedLink ></vimeo-video>
+    <vimeo-video player-id="video1" video-id="movie.embeddedLink" player-width="window.innerWidth"></vimeo-video>
     <!--ion-spinner icon="crescent" align="center" style="margin-left: auto; margin-right: auto; display:block;" ng-show="loading"></ion-spinner-->
     <div class="list videoDetails">
       <div class="item item-text-wrap">
@@ -26,9 +26,8 @@
           <p class="tag"><span>Free</span><span>HD</span></p>
 
           <p class="star">
-            <rating-div rating='movie.Rating'>
-
-          </rating-div></p>
+            <rating-div-exclusive  movie=movie></rating-div-exclusive>
+          </p>
           <a href="" ng-click ='trailer(movie)' class="button button-small button-assertive">Watch Trailer </a> </div>
       </div>
     </div>

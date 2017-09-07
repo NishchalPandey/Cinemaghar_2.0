@@ -13,13 +13,15 @@ ratingModule.service('ratingService', function($ionicModal, facebookServices, mo
 	        scope.ratingModal = modal;
 	        scope.ratingModal.show();
 					scope.ratingDone = function(){
-						ratingVal = 3;
 						var ratingVal = scope.rating.value;
-						var movieTitle = movie.name;
-						var banner_link = movie.banner_name;
-						facebookServices.postToFb(movieTitle, ratingVal, banner_link);
-						movieFactory.sendRatingToDb(ratingVal, movieTitle);
-						scope.rating.done = true;
+						if(ratingVal != 0){
+							var movieTitle = movie.name;
+							var banner_link = movie.banner_name;
+							var catagory = movie.catagory;
+							//facebookServices.postToFb(movieTitle, ratingVal, banner_link);
+							movieFactory.sendRatingToDb(ratingVal, movieTitle, catagory);
+							scope.rating.done = true;
+						}
 						scope.ratingModal.remove();
 						deferred.resolve(ratingVal);
 					}

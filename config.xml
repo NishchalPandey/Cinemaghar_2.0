@@ -10,6 +10,7 @@
   <content src="index.html"/>
   <access origin="*"/>
   <allow-navigation href="https://www.youtube.com/*"/>
+  <allow-navigation href="https://player.vimeo.com/*"/>
   <preference name="Orientation" value="portrait" />
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>

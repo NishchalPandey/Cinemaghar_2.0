@@ -1,20 +1,25 @@
 var pushNotMod = angular.module('pushNotificationModule', []);
-    pushNotMod.factory('pushNotificationService', function($q, $ionicPopup){
+    pushNotMod.factory('pushNotificationService', function($q, $ionicPopup, $ionicPlatform){
 
         var deferred  = $q.defer();
         document.addEventListener("deviceready", function(){
             deferred.resolve(PushNotification);
 
-            var push = PushNotification.init({ "android": 
+            var push = PushNotification.init({ "android":
                                                             {"senderID": "714035949489"},
-                                                        "ios": 
-                                                            {"alert": "true", 
-                                                            "badge": "true", 
-                                                            "sound": "true"}, 
+                                                        "ios":
+                                                            {"alert": "true",
+                                                            "badge": "true",
+                                                            "sound": "true"},
                                                             "windows": {} } );
                      push.on('registration', function(data) {
                          var register_id = data.registrationId;
-                         var data = {user_app_id: register_id};
+                         var data = {user_app_id: register_id, platform:''};
+                         var isIOS = ionic.Platform.isIOS();
+                         if(isIOS){
+                           console.log('iOS device detected');
+                           data.platform = "ios";
+                         }
                          $.ajax({
                              url:"http://cinemagharhd.com/php/register_user_app.php",
                              type:"POST",
@@ -51,9 +56,7 @@ var pushNotMod = angular.module('pushNotificationModule', []);
                          console.log("push error");
                      });
     }, false);
-    
+
     return deferred.promise;
 
-    });	
-         
-    
+    });

@@ -19,7 +19,7 @@ console.log('vimeoEmded loading!');
 
         scope.$watch("videoId",function(newValue){
           console.log(newValue);
-        
+
           var playerId = attrs.playerId || element[0].id;
           element[0].id = playerId;
 
@@ -45,12 +45,13 @@ console.log('vimeoEmded loading!');
           VimeoService.oEmbed(params).then(function (data) {
             element.html(data.html);
           }, function () {
-            element.html('<div>Failed to retreive video.</div>');
+            element.html('<div>Failed to retrieve video.</div>');
           });
         });
       }
     };
   })
+
 
   .factory('VimeoService', function ($http) {
     var endpoint = 'https://www.vimeo.com/api/oembed.json';

@@ -167,7 +167,6 @@ angular.module('starter.controllers',
         };
 
         $scope.playerExclusiveMovie = function(){
-          console.log($scope.movie.embeddedLink);
           YoutubeVideoPlayer.openVideo($scope.movie.embeddedLink);
         }
 
@@ -214,7 +213,7 @@ angular.module('starter.controllers',
             console.log(error);
         });
   })
-  .controller('exclusivePlayerCtrl',function($scope, $ionicLoading, $ionicModal, $stateParams, movieFactory, ratingService, $sce, $ionicHistory, $ionicPopup){
+  .controller('exclusivePlayerCtrl',function($window, $scope, $ionicLoading, $ionicModal, $stateParams, movieFactory, ratingService, $sce, $ionicHistory, $ionicPopup){
   /**
     This controller is associated to the exclusive movie player page as of 2017:03
     Uses Vimeo player api https://github.com/vincenzomerolla/angular-vimeo-embed/blob/master/src/angular-vimeo-embed.js
@@ -230,6 +229,8 @@ angular.module('starter.controllers',
           });
 
         };
+
+        $scope.window = $window;
 
         /*$scope.playExclusiveMovie = function(){
           console.log($scope.movie.embeddedLink);
@@ -253,7 +254,6 @@ angular.module('starter.controllers',
                 $scope.playVideo.pause = true
               }
             });
-
 
             $scope.closeButtonClicked = function(e){
               e.preventDefault();
