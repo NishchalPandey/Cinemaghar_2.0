@@ -10,7 +10,7 @@
       <button class="button button-clear button-icon ion-ios-search"  ng-click="searchModal.show()"></button>
     </div>
   </ion-header-bar>
-  <ion-content>
+  <ion-content ng-hide="loading">
   <ion-spinner icon="crescent" align="center" style="margin-left: auto; margin-right: auto; display:block;" ng-show="loading"></ion-spinner>
     <ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true" slide-interval="3000" does-continue="true">
       <ion-slide ng-repeat="slide in sliderImages" ng-hide="loading">
@@ -39,8 +39,11 @@
         </div>
       </div>
     </div>
-
     <div data-ng-include="ui.tabview"> </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of 4cd1727... before new implementation of player
 
 </div>
 

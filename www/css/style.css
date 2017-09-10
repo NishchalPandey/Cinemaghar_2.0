@@ -42,7 +42,11 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { font-family: 'Roboto', sa
 .movieList .item.item-thumbnail-left { padding: 10px 10px 10px 170px; border-color: #262e3b; min-height: 82px; background: #303a4b; color: #fff; }
 .movieList .item.item-thumbnail-left.activated { background: #2d3647 }
 .movieList .item h2, .movieList .item p { color: #fff; }
+<<<<<<< HEAD
 .movieList .item.item-thumbnail-left img { width: 140px; height: 70px; max-width: none; max-height: none; top: 8px; left: 8px; }
+=======
+.movieList .item.item-thumbnail-left img { width: auto; height: 70px; max-width: none; max-height: none; top: 8px; left: 8px; }
+>>>>>>> parent of 4cd1727... before new implementation of player
 .movieList .item p { margin: 0; }
 .movieList .item p span { display: inline-block; font-size: .8em; padding: 1px 20px; background: #47505f; color: #bdbdbd; margin: 3px 10px 0 0 }
 .movieList .item p.star { color: #ffcf10; margin: 5px 0 0 0; line-height: 1em; font-size: 1em; letter-spacing: 5px; }

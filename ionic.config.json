@@ -1,4 +1,7 @@
 {
   "name": "Cinemaghar",
-  "app_id": ""
+  "app_id": "",
+  "type": "ionic1",
+  "integrations": {},
+  "watchPatterns": []
 }
