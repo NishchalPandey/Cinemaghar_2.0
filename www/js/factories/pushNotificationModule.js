@@ -56,11 +56,5 @@ var pushNotMod = angular.module('pushNotificationModule', []);
     }, false);
 
     return deferred.promise;
-
-<<<<<<< HEAD
     });
-=======
-    });	
          
-    
->>>>>>> parent of 4cd1727... before new implementation of player
